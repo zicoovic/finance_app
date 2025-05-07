@@ -50,12 +50,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 30.h,
               ),
               CustomTextForm(
+                obscureText: true,
+                isPassword: true,
                 hintText: "Enter your password",
                 borderRadius: 1.r,
-                suffixIcon: Icon(
-                  Icons.remove_red_eye_sharp,
-                  color: AppColors.greyColor,
-                ),
               ),
               SizedBox(
                 height: 20.h,

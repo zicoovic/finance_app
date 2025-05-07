@@ -55,19 +55,31 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               ),
               CustomTextForm(
+                obscureText: true,
+                isPassword: true,
                 hintText: "password",
                 borderRadius: 1.r,
-                suffixIcon: Icon(
-                  Icons.visibility_off_rounded,
-                  color: AppColors.greyColor,
+                suffixIconButton: IconButton(
+                  onPressed: () {
+                    setState(() {});
+                  },
+                  icon: Icon(
+                    Icons.visibility_off_rounded,
+                    color: AppColors.greyColor,
+                  ),
                 ),
               ),
               CustomTextForm(
+                obscureText: true,
+                isPassword: true,
                 hintText: "confirm password",
                 borderRadius: 1.r,
-                suffixIcon: Icon(
-                  Icons.visibility_off_rounded,
-                  color: AppColors.greyColor,
+                suffixIconButton: IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.visibility_off_rounded,
+                    color: AppColors.greyColor,
+                  ),
                 ),
               ),
               SizedBox(

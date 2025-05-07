@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'screens/forget_password_screen.dart';
 import 'screens/login_screen.dart';
+import 'screens/otp_verification_screen.dart';
 import 'screens/register_screen.dart';
 
 void main() {
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
           '/login': (context) => LoginScreen(),
           '/register': (context) => RegisterScreen(),
           '/forget-password': (context) => ForgetPasswordScreen(),
+          '/otp-verification': (context) => OtpVerificationScreen(),
         },
         title: 'Flutter Demo',
         theme: AppTheme.lightTheme,

@@ -4,16 +4,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../core/styling/app_colors.dart';
 import '../core/styling/app_styles.dart';
 import '../core/widgets/custom_elevated_button.dart';
-import '../core/widgets/custom_text_form.dart';
 
-class ForgetPasswordScreen extends StatefulWidget {
-  const ForgetPasswordScreen({super.key});
+class OtpVerificationScreen extends StatefulWidget {
+  const OtpVerificationScreen({super.key});
 
   @override
-  State<ForgetPasswordScreen> createState() => _ForgetPasswordScreenState();
+  State<OtpVerificationScreen> createState() => _OtpVerificationScreenState();
 }
 
-class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
+class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +25,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Forgot Password?",
+              "OTP Verification",
               style: TextStyle(
                 fontSize: 32.sp,
                 fontWeight: FontWeight.bold,
@@ -37,27 +36,17 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
               height: 20.h,
             ),
             Text(
-                "Don't worry! It occurs. Please enter the email address linked with your account."),
+                "Enter the verification code we just sent on your email address."),
             SizedBox(
               height: 50.h,
-            ),
-            CustomTextForm(
-              hintText: "Enter your email",
-              borderRadius: 1.r,
-              suffixIcon: Icon(
-                Icons.email,
-                color: AppColors.greyColor,
-              ),
             ),
             SizedBox(
               height: 50.h,
             ),
             CustomButton(
-              text: "Send code",
+              text: "verify",
               backgroundColor: AppColors.primary,
-              onPressed: () {
-                Navigator.pushNamed(context, '/otp-verification');
-              },
+              onPressed: () {},
               textColor: AppColors.whiteColor,
             ),
             SizedBox(
@@ -67,15 +56,15 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Remember password?",
+                  "Didn’t received code? ",
                   style: AppStyles.primary15w500Style,
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/login');
+                    Navigator.pushNamed(context, '/register');
                   },
                   child: Text(
-                    "Login now",
+                    "Resend",
                     style: AppStyles.darkBlue15w700Style,
                   ),
                 ),
