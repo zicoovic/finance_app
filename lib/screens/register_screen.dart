@@ -1,11 +1,14 @@
+import 'package:finance_app/core/routing/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 import '../core/styling/app_colors.dart';
 import '../core/styling/app_styles.dart';
 import '../core/widgets/custom_elevated_button.dart';
 import '../core/widgets/custom_text_form.dart';
+import '../core/widgets/spacing_widget.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -18,9 +21,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: AppColors.primary),
-      ),
+      appBar: AppBar(),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 40.h),
         child: SingleChildScrollView(
@@ -35,9 +36,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   color: AppColors.primary,
                 ),
               ),
-              SizedBox(
-                height: 50.h,
-              ),
+              HightSpace(50),
               CustomTextForm(
                 hintText: "username",
                 borderRadius: 1.r,
@@ -82,29 +81,40 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 30.h,
-              ),
+              HightSpace(30),
               CustomButton(
                 text: "Register",
                 backgroundColor: AppColors.primary,
                 onPressed: () {
-                  Navigator.pushNamed(context, '/login');
+                  GoRouter.of(context).pushNamed(AppRoutes.loginScreen);
                 },
                 textColor: AppColors.whiteColor,
               ),
-              SizedBox(
-                height: 50.h,
+              HightSpace(50),
+              Row(
+                children: [
+                  Expanded(
+                    child: Divider(
+                      thickness: 1,
+                      color: AppColors.greyColor,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
+                    child: Text(
+                      'Or register with',
+                      style: AppStyles.darkGrey14w600Style,
+                    ),
+                  ),
+                  Expanded(
+                    child: Divider(
+                      thickness: 1,
+                      color: AppColors.greyColor,
+                    ),
+                  ),
+                ],
               ),
-              Center(
-                child: Text(
-                  'Or Register with',
-                  style: AppStyles.darkGrey14w600Style,
-                ),
-              ),
-              SizedBox(
-                height: 30.h,
-              ),
+              HightSpace(30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -125,9 +135,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 50.h,
-              ),
+              HightSpace(50),
               Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -138,7 +146,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.pushNamed(context, '/login');
+                        GoRouter.of(context).pushNamed(AppRoutes.loginScreen);
                       },
                       child: Text(
                         'Login',

@@ -46,11 +46,13 @@ class _CustomButtonState extends State<CustomButton> {
         textStyle: AppStyles.subTitleStyle,
       ),
       onPressed: widget.onPressed,
-      child: Text(
-        widget.text ?? "",
-        style: TextStyle(
-          color: widget.textColor,
-          fontSize: widget.fontSize ?? 16.sp,
+      child: Center(
+        child: Text(
+          widget.text ?? "",
+          style: TextStyle(
+            color: widget.textColor,
+            fontSize: widget.fontSize ?? 16.sp,
+          ),
         ),
       ),
     );

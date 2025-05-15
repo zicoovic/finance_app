@@ -1,10 +1,13 @@
+import 'package:finance_app/core/routing/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../core/styling/app_colors.dart';
 import '../core/styling/app_styles.dart';
 import '../core/widgets/custom_elevated_button.dart';
 import '../core/widgets/custom_text_form.dart';
+import '../core/widgets/spacing_widget.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
   const ForgetPasswordScreen({super.key});
@@ -33,14 +36,12 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 color: AppColors.primary,
               ),
             ),
-            SizedBox(
-              height: 20.h,
-            ),
+            HightSpace(20),
             Text(
-                "Don't worry! It occurs. Please enter the email address linked with your account."),
-            SizedBox(
-              height: 50.h,
+              "Don't worry! It occurs. Please enter the email address linked with your account.",
+              style: AppStyles.grey16w500Style,
             ),
+            HightSpace(50),
             CustomTextForm(
               hintText: "Enter your email",
               borderRadius: 1.r,
@@ -49,20 +50,16 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 color: AppColors.greyColor,
               ),
             ),
-            SizedBox(
-              height: 50.h,
-            ),
+            HightSpace(50),
             CustomButton(
               text: "Send code",
               backgroundColor: AppColors.primary,
               onPressed: () {
-                Navigator.pushNamed(context, '/otp-verification');
+                GoRouter.of(context).pushNamed(AppRoutes.otpVerificationScreen);
               },
               textColor: AppColors.whiteColor,
             ),
-            SizedBox(
-              height: 200.h,
-            ),
+            HightSpace(200),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -72,7 +69,8 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 ),
                 TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/login');
+                    GoRouter.of(context)
+                        .pushReplacementNamed(AppRoutes.loginScreen);
                   },
                   child: Text(
                     "Login now",

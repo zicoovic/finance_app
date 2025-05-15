@@ -1,12 +1,8 @@
 import 'package:finance_app/core/styling/theme_data.dart';
-import 'package:finance_app/screens/landing_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'screens/forget_password_screen.dart';
-import 'screens/login_screen.dart';
-import 'screens/otp_verification_screen.dart';
-import 'screens/register_screen.dart';
+import 'core/routing/route_generation_config.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,20 +15,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
-      builder: (context, child) => MaterialApp(
+      builder: (context, child) => MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        routes: {
-          // '/': (context) => LandingScreen(),
-          '/login': (context) => LoginScreen(),
-          '/register': (context) => RegisterScreen(),
-          '/forget-password': (context) => ForgetPasswordScreen(),
-          '/otp-verification': (context) => OtpVerificationScreen(),
-        },
+        routerConfig: RouteGenerationConfig.goRouter,
         title: 'Flutter Demo',
         theme: AppTheme.lightTheme,
-        home: child,
       ),
-      child: LandingScreen(),
     );
   }
 }

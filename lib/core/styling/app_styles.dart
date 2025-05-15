@@ -49,4 +49,24 @@ class AppStyles {
     fontWeight: FontWeight.w500,
     color: AppColors.primary,
   );
+
+  static TextStyle grey16w500Style = TextStyle(
+    fontFamily: AppFonts.mainFontName,
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w500,
+    color: AppColors.greyColor,
+  );
+  static TextStyle white14w500Style = TextStyle(
+    fontFamily: AppFonts.mainFontName,
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w500,
+    color: AppColors.white,
+  );
+
+  static TextStyle darkBlue18w600Style = TextStyle(
+    fontFamily: AppFonts.mainFontName,
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w500,
+    color: AppColors.darkBlue,
+  );
 }

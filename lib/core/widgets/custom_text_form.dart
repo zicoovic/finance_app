@@ -12,6 +12,8 @@ class CustomTextForm extends StatefulWidget {
   final double? borderRadius;
   final bool isPassword;
   final bool? obscureText;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
 
   const CustomTextForm({
     super.key,
@@ -23,6 +25,8 @@ class CustomTextForm extends StatefulWidget {
     this.borderRadius,
     this.isPassword = false,
     this.obscureText,
+    this.controller,
+    this.validator,
   });
 
   @override
@@ -41,15 +45,23 @@ class _CustomTextFormState extends State<CustomTextForm> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: widget.width ?? 331.w,
-      height: widget.height ?? 56.h,
-      child: TextField(
+      // width: widget.width ?? 331.w,
+      // height: widget.height ?? 56.h,
+      child: TextFormField(
+        controller: widget.controller,
+        validator: widget.validator,
         cursorColor: AppColors.primary,
         style: TextStyle(fontSize: 15.sp),
         obscureText:
             widget.isPassword ? _isHidden : (widget.obscureText ?? false),
         decoration: InputDecoration(
           border: OutlineInputBorder(),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(
+              1,
+            ),
+            borderSide: const BorderSide(color: Colors.red),
+          ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(
               1,
@@ -76,7 +88,9 @@ class _CustomTextFormState extends State<CustomTextForm> {
               ? IconButton(
                   onPressed: _toggleVisibility,
                   icon: Icon(
-                    _isHidden ? Icons.visibility_off : Icons.visibility,
+                    _isHidden
+                        ? Icons.remove_red_eye_outlined
+                        : Icons.visibility_off_outlined,
                     color: AppColors.greyColor,
                   ),
                 )
