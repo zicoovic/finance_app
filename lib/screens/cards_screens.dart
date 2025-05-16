@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 
 import '../core/styling/app_colors.dart';
 import '../core/styling/app_styles.dart';
+import '../core/widgets/custom_navbar.dart';
 
 class CardsScreens extends StatelessWidget {
   const CardsScreens({super.key});
@@ -14,8 +15,10 @@ class CardsScreens extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+          bottomNavigationBar: CustomButtonNavBar(),
           appBar: AppBar(
             toolbarHeight: 70.h,
+            backgroundColor: AppColors.whiteColor,
             centerTitle: true,
             title: Text("All Cards", style: AppStyles.darkBlue18w600Style),
             actions: [

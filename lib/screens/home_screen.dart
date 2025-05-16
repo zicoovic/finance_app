@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../core/widgets/card_grid_widget.dart';
 import '../core/widgets/carousel_widget.dart';
+import '../core/widgets/custom_navbar.dart';
 import '../core/widgets/profile_app_bar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -18,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        bottomNavigationBar: CustomButtonNavBar(),
         appBar: profileAppBar(),
         body: Padding(
           padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 24.h),
