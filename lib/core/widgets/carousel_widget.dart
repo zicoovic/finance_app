@@ -1,11 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:finance_app/core/styling/app_colors.dart';
+
 import 'package:finance_app/core/widgets/spacing_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'card_grid_widget.dart';
 import 'card_item_widget.dart';
 
 class CustomCarouselWidget extends StatefulWidget {

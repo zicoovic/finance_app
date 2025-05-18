@@ -14,6 +14,35 @@ class CustomButtonNavBar extends StatefulWidget {
 
 class _CustomButtonNavBarState extends State<CustomButtonNavBar> {
   int currentIndex = 0;
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // جيب المسار الحالي باستخدام routerDelegate
+    final currentRoute =
+        GoRouter.of(context).routerDelegate.currentConfiguration.uri.toString();
+    setState(() {
+      switch (currentRoute) {
+        case '/home-screen':
+          currentIndex = 0;
+          break;
+        case '/static-screen':
+          currentIndex = 1;
+          break;
+        case '/add-screen':
+          currentIndex = 2;
+          break;
+        case '/card-screen':
+          currentIndex = 3;
+          break;
+        case '/profile-screen':
+          currentIndex = 4;
+          break;
+        default:
+          currentIndex = 0; // لو المسار مش معروف، رجع للرئيسية
+      }
+    });
+  }
+
   List<Widget> screens = [
     CardsScreens(),
   ];
@@ -27,23 +56,26 @@ class _CustomButtonNavBarState extends State<CustomButtonNavBar> {
       selectedItemColor: AppColors.primary,
       currentIndex: currentIndex,
       onTap: (value) {
-        setState(() => currentIndex = value);
+        setState(() {
+          currentIndex = value;
+        });
 
         switch (value) {
           case 0:
-            GoRouter.of(context).goNamed("/home-screen");
+            GoRouter.of(context).go('/home-screen');
             break;
           case 1:
-            GoRouter.of(context).goNamed("/static-screen");
+            GoRouter.of(context).go('/static-screen');
             break;
           case 2:
-            GoRouter.of(context).goNamed("/add-screen");
+            // استخدام push لصفحة الإضافة لو مؤقتة
+            GoRouter.of(context).push('/add-screen');
             break;
           case 3:
-            GoRouter.of(context).goNamed("/card-screen");
+            GoRouter.of(context).go('/card-screen');
             break;
           case 4:
-            GoRouter.of(context).goNamed("/profile-screen");
+            GoRouter.of(context).go('/profile-screen');
             break;
         }
       },
